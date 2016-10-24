@@ -19,9 +19,12 @@ public class Circle {
         y += dy;
     }
 
-    public void zoom(double factor) {
-        System.out.println("Изменяем радиус в "+factor+" раз");
+    public void multiZoom(double factor) {
         radius = factor * radius;
+    }
+
+    public void changedZoom(double delta) {
+        radius += delta;
     }
 
     public void findPoint(double x1, double y1) {
@@ -53,6 +56,4 @@ public class Circle {
     public String toString() {
         return "Обновленный радиус = " + this.radius + " , новые координаты центра: x = " + x + ", y = " + y;
     }
-
-
 }
