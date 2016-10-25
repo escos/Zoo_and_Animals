@@ -1,4 +1,4 @@
-package ru.levelp.myzoo;
+package ru.levelp;
 
 public class Animal {
     String name; // название животного
