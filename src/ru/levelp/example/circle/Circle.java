@@ -4,6 +4,7 @@ public class Circle {
     double x;
     double y;
     double radius;
+    final static double E = 0.001;
 
     Circle(double radius, double x, double y) {
         if (radius < 0) {
@@ -37,9 +38,9 @@ public class Circle {
     public int identificatePointPlace(double x1, double y1) {
         System.out.printf("Координаты заданной точки:x = %.3f, y = %.3f\n", x1, y1);
         double distance = Math.sqrt(Math.pow((x1 - x), 2) + Math.pow((y1 - y), 2));
-        if (distance * (1 - 0.001) > radius)
+        if (distance * (1 - E) > radius)
             System.out.println("Точка находится за пределами круга");
-        else if (distance * (1 - 0.001) == radius) {
+        else if (distance * (1 - E) == radius) {
             System.out.println("Точка находится на окружности");
             return 0;
         } else {
@@ -62,6 +63,6 @@ public class Circle {
     }
 
     public String toString() {
-        return "Обновленный радиус = " + this.radius + " , новые координаты центра: x = " + x + ", y = " + y;
+        return "Радиус окружности= " + this.radius + " , координаты центра: x = " + x + ", y = " + y;
     }
 }
