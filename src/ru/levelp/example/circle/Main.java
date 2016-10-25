@@ -33,17 +33,18 @@ public class Main {
         double diametr = t.calculateDiametr(); // вычисляем диаметр
         double length = t.circleLength();      // вычисляем длину окружности
         double square = t.circleSquare();      // вычисляем площади круга
-        String rd = t.toString();
         // Проверяем, находится ли заданная точка внутри круга
         System.out.println("Введите координаты заданной точки (необходимо ввести два числа вещественного типа):");
         double xpoint = sc.nextDouble();
         double ypoint = sc.nextDouble();
-        t.findPoint(xpoint, ypoint);
+        int id = t.identificatePointPlace(xpoint, ypoint);
+        System.out.println(id);
         // вывод всех рассчитанных данных
         System.out.printf("Диаметр окружности = %.3f\n", diametr);
         System.out.printf("Длина окружности = %.3f\n", length);
         System.out.printf("Площадь круга = %.3f\n", square);
         System.out.println("Вывод с использованием метода ToString");
+        String rd = t.toString();
         System.out.println(rd);
     }
 }

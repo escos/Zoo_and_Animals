@@ -14,6 +14,13 @@ public class Circle {
         this.y = y;
     }
 
+    Circle(double radius) {
+        if (radius < 0) {
+            throw new IllegalArgumentException("Радиус меньше 0");
+        }
+        this.radius = radius;
+    }
+
     public void move(double dx, double dy) {
         x = x + dx;
         y += dy;
@@ -27,30 +34,31 @@ public class Circle {
         radius += delta;
     }
 
-    public void findPoint(double x1, double y1) {
+    public int identificatePointPlace(double x1, double y1) {
         System.out.printf("Координаты заданной точки:x = %.3f, y = %.3f\n", x1, y1);
         double distance = Math.sqrt(Math.pow((x1 - x), 2) + Math.pow((y1 - y), 2));
-        if (distance > radius)
+        if (distance * (1 - 0.001) > radius)
             System.out.println("Точка находится за пределами круга");
-        else if (distance == radius)
+        else if (distance * (1 - 0.001) == radius) {
             System.out.println("Точка находится на окружности");
-        else
+            return 0;
+        } else {
             System.out.println("Точка находится внутри круга");
+            return 1;
+        }
+        return -1;
     }
 
     public double circleLength() {
-        double length = 2 * Math.PI * radius;
-        return length;
+        return 2 * Math.PI * radius;
     }
 
     public double circleSquare() {
-        double square = Math.PI * Math.pow(radius, 2);
-        return square;
+        return Math.PI * Math.pow(radius, 2);
     }
 
     public double calculateDiametr() {
-        double diametr = 2 * radius;
-        return diametr;
+        return 2 * radius;
     }
 
     public String toString() {
