@@ -1,4 +1,4 @@
-package ru.levelp.myzoo;
+package ru.levelp;
 
 import java.util.Scanner;
 import java.util.Random;
