@@ -35,19 +35,12 @@ public class Circle {
         radius += delta;
     }
 
-    public int identificatePointPlace(double x1, double y1) {
+    public boolean pointIntoCircle(double x1, double y1) {
         System.out.printf("Координаты заданной точки:x = %.3f, y = %.3f\n", x1, y1);
         double distance = Math.sqrt(Math.pow((x1 - x), 2) + Math.pow((y1 - y), 2));
         if (distance * (1 - E) > radius)
-            System.out.println("Точка находится за пределами круга");
-        else if (distance * (1 - E) == radius) {
-            System.out.println("Точка находится на окружности");
-            return 0;
-        } else {
-            System.out.println("Точка находится внутри круга");
-            return 1;
-        }
-        return -1;
+            return false;
+        else return true;
     }
 
     public double circleLength() {

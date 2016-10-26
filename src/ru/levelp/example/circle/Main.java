@@ -37,7 +37,7 @@ public class Main {
         System.out.println("Введите координаты заданной точки (необходимо ввести два числа вещественного типа):");
         double xpoint = sc.nextDouble();
         double ypoint = sc.nextDouble();
-        int id = t.identificatePointPlace(xpoint, ypoint);
+        boolean id = t.pointIntoCircle(xpoint, ypoint);
         System.out.println(id);
         // вывод всех рассчитанных данных
         System.out.printf("Диаметр окружности = %.3f\n", diametr);
