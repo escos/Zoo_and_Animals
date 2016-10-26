@@ -6,12 +6,7 @@ public class Animal {
     String kind; // хищник или травоядное
     String gender; // самка или самец
 
-    Animal(String name, String kind) {
-        this.name = name;
-        this.kind = kind;
-        this.color = color;
-        this.gender = gender;
-    }
+
 
     public static void animalEating(Animal A1, Animal A2) {
         if (A1.kind != A2.kind) {

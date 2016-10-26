@@ -11,6 +11,7 @@ public class Zoo {
 
         Animal[] animal_mass = new Animal[N];
         for (int i = 0; i < N; i++) {
+            animal_mass[i] = new Animal();
             boolean var = gen.nextBoolean();
             if (var) {
                 animal_mass[i].kind = "травоядное";
