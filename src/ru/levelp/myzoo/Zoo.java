@@ -12,25 +12,21 @@ public class Zoo {
         Animal[] animal_mass = new Animal[N];
         for (int i = 0; i < N; i++) {
             boolean var = gen.nextBoolean();
-            String kind = animal_mass[i].kind;
-            String name = animal_mass[i].name;
-            String color = animal_mass[i].color;
-            String gender = animal_mass[i].gender;
             if (var) {
                 animal_mass[i].kind = "травоядное";
-                String[] men_mass = {"Слон", "Жираф", "Антилопа", "Зебра", "Заяц"};
-                animal_mass[i].name = men_mass[gen.nextInt(5)];
+                String[] herbal_mass = {"Слон", "Жираф", "Антилопа", "Зебра", "Заяц"};
+                animal_mass[i].name = herbal_mass[gen.nextInt(5)];
             } else {
                 animal_mass[i].kind = "хищное";
-                String[] women_mass = {"Тигр", "Волк", "Лев", "Крокодил"};
-                animal_mass[i].name = women_mass[gen.nextInt(4)];
+                String[] predator_mass = {"Тигр", "Волк", "Лев", "Крокодил"};
+                animal_mass[i].name = predator_mass[gen.nextInt(4)];
             }
             String[] col_arr = {"черный", "белый", "коричневый", "серый", "рыжий"};
             String[] gender_arr = {"самка", "самец"};
             animal_mass[i].color = col_arr[gen.nextInt(5)];
             animal_mass[i].gender = gender_arr[gen.nextInt(2)];
-            System.out.println((i + 1) + " сбежавший представитель зоопарка это " + kind + " животное " + name);
-            System.out.println(name + " имеет " + color + " окрас, а также " + name + " - " + gender);
+            System.out.println((i + 1) + " сбежавший представитель зоопарка это " + animal_mass[i].kind + " животное " + animal_mass[i].name);
+            System.out.println(animal_mass[i].name + " имеет " + animal_mass[i].color + " окрас, а также " + animal_mass[i].name + " - " + animal_mass[i].gender);
         }
         return animal_mass;
     }
