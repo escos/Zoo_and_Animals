@@ -8,7 +8,7 @@ public class Main {
         System.out.println();
         System.out.println("ВЫЯСНИЛОСЬ ВСКОРЕ СЛЕДУЮЩЕЕ:");
         System.out.println();
-        Zoo.herbivoreSort(array);
+        Zoo.separateHerbivore(array);
         System.out.println();
         System.out.println("В ОДНУ СТОРОНУ УБЕЖАЛИ ДВОЕ ЖИВОТНЫХ!");
         System.out.println();
