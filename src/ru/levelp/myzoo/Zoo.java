@@ -7,7 +7,7 @@ public class Zoo {
     static Random gen = new Random();
     final static int N = 5;
 
-    public enum kinds {
+    public enum Animalkinds {
         HERBIVORE {
             public String toString() {
                 return "травоядное";
@@ -21,43 +21,41 @@ public class Zoo {
     }
     // Создаем зоопарк из N животных
     public static Animal[] createZoo() {
-        Animal[] animal_mass = new Animal[N];
+        Animal[] animalArray = new Animal[N];
         for (int i = 0; i < N; i++) {
-            String[] col_arr = {"черный", "белый", "коричневый", "серый", "рыжий"};
-            String[] gender_arr = {"самка", "самец"};
-            String color = col_arr[gen.nextInt(col_arr.length)];
-            String gender = gender_arr[gen.nextInt(gender_arr.length)];
+            String[] colArray = {"черный", "белый", "коричневый", "серый", "рыжий"};
+            String[] gendersArray = {"самка", "самец"};
+            String color = colArray[gen.nextInt(colArray.length)];
+            String gender = gendersArray[gen.nextInt(gendersArray.length)];
             String name;
             String kind;
             boolean var = gen.nextBoolean();
             if (var) {
-                kind = String.valueOf(kinds.HERBIVORE);
-                String[] herbal_mass = {"Слон", "Жираф", "Антилопа", "Зебра", "Заяц"};
-                name = herbal_mass[gen.nextInt(herbal_mass.length)];
+                kind = String.valueOf(Animalkinds.HERBIVORE);
+                String[] herbalsArray = {"Слон", "Жираф", "Антилопа", "Зебра", "Заяц"};
+                name = herbalsArray[gen.nextInt(herbalsArray.length)];
             } else {
-                kind = String.valueOf(kinds.PREDATOR);
-                String[] predator_mass = {"Тигр", "Волк", "Лев", "Крокодил"};
-                name = predator_mass[gen.nextInt(predator_mass.length)];
+                kind = String.valueOf(Animalkinds.PREDATOR);
+                String[] predatorsArray = {"Тигр", "Волк", "Лев", "Крокодил"};
+                name = predatorsArray[gen.nextInt(predatorsArray.length)];
             }
-            animal_mass[i] = new Animal(name, color, kind, gender);
-            System.out.printf("%d-й сбежавший представитель зоопарка - это %s животное - %s.\n", (i + 1), animal_mass[i].kind, animal_mass[i].name);
-            System.out.printf("  %s имеет %s окрас, а также %s - %s.\n", animal_mass[i].name, animal_mass[i].color, animal_mass[i].name, animal_mass[i].gender);
+            animalArray[i] = new Animal(name, color, kind, gender);
+            System.out.printf("%d-й сбежавший представитель зоопарка - это %s животное - %s.\n", (i + 1), animalArray[i].kind, animalArray[i].name);
+            System.out.printf("  %s имеет %s окрас, а также %s - %s.\n", animalArray[i].name, animalArray[i].color, animalArray[i].name, animalArray[i].gender);
         }
-        return animal_mass;
+        return animalArray;
     }
 
     // Отсортировываем и считаем количество тарвоядных
     public static void separateHerbivore(Animal[] arr) {
-        ArrayList<String> herbalName = new ArrayList<>();
-        int count = 0;
+        ArrayList<String> herbivoreName = new ArrayList<>();
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i].kind.equals(String.valueOf(kinds.HERBIVORE))) {
-                count += 1;
-                herbalName.add(arr[i].name);
+            if (arr[i].kind.equals(String.valueOf(Animalkinds.HERBIVORE))) {
+                herbivoreName.add(arr[i].name);
             }
         }
-        System.out.println("Количество сбежавших травоядных животных = " + count);
-        System.out.println("Сбежавшее(ие) травоядное(ые): " + herbalName);
+        System.out.println("Количество сбежавших травоядных животных = " + herbivoreName.size());
+        System.out.println("Сбежавшее(ие) травоядное(ые): " + herbivoreName);
     }
 
     // Два животных едят
@@ -67,13 +65,13 @@ public class Zoo {
         if (!A1.kind.equals(A2.kind)) {
             System.out.println("Так как в одну сторону побежали и хищник и травоядное животное, ");
 
-            if (A1.kind.equals(String.valueOf(kinds.HERBIVORE))) {
+            if (A1.kind.equals(String.valueOf(Animalkinds.HERBIVORE))) {
                 System.out.printf("то зверь под названием %s съел бедного животного под названием %s.\n", A2.name, A1.name);
             } else {
                 System.out.printf("то зверь под названием %s съел бедного животного под названием %s.\n", A1.name, A2.name);
             }
         } else {
-            if (A1.kind.equals(String.valueOf(kinds.PREDATOR))) {
+            if (A1.kind.equals(String.valueOf(Animalkinds.PREDATOR))) {
                 System.out.printf("Так как в одну сторону побежали два хищника: %s и %s,\n", A1.name, A2.name);
                 System.out.println("то они побежали вдвоем в поисках живой еды!");
             } else {
